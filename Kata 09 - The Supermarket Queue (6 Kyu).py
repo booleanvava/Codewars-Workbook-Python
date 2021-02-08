@@ -11,14 +11,14 @@ The function should return an integer, the total time required.
 
 # Solution: 
 
-def queue_time(customers, n):
+def queue_time(customers, n): # We solve for the easiest case where there is only one till. Naturally, this means that each customer's time will be added to output the total time.
     if n == 1:
         return sum(customers)
-    elif n > len(customers):
+    elif n > len(customers): # When the number of tills is higher than the number of customers, the total time will simply be equal to the time spent by the "busiest" customer. 
         return max(customers)
-    elif n < len(customers):
-        totaltime = [0] * n 
+    elif n < len(customers): 
+        totaltime = [0] * n  # We initiate a list which contains a number of elements equal to the number of tills. This is to iterate through the "customers" list accordingly.
         for customertime in customers: 
-            totaltime[totaltime.index(min(totaltime))] += customertime
+            totaltime[totaltime.index(min(totaltime))] += customertime 
         return max(totaltime)
              
